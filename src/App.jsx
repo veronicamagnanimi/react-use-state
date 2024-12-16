@@ -2,7 +2,7 @@ import {useState} from "react";
 import Languages from "./data/languages"
 
 function App() {
-  const [selectedLanguage, setSelectedLanguage] = useState(Languages[0]);
+  const [selectedLanguage, setSelectedLanguage] = useState(null);
 
   return (
     <>
@@ -22,8 +22,14 @@ function App() {
 
       {/* Card per mostrare il linguaggio selezionato */}
       <div className="card mt-3 p-3">
-        <h2>{selectedLanguage.title}</h2>
+        {selectedLanguage ? (
+          <><h2>{selectedLanguage.title}</h2>
         <p>{selectedLanguage.description}</p>
+        </>
+        ) : (
+          <p>Nessun linguaggio selezionato</p>
+        )}
+        
       </div>
       </div>
      </>
