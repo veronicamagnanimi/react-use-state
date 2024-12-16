@@ -6,29 +6,26 @@ function App() {
 
   return (
     <>
+    <header>
+    <h1 className="mt-3 text-center">Learn Web development</h1>
+    </header>
     <div className="container">
-    <h1>Learn Web development</h1>
-    </div>
-
-    {/*bottoni per ogni linguaggio*/}
-    <div className="buttons">
-    {Languages.map((language) => (
+    <div className="mt-5">
+    {Languages.map((curItem, index) => (
           <button
-            key={language.id}
-            onClick={() => setSelectedLanguage(language)} // Cambia il linguaggio selezionato
-            className="language-button"
-          >
-            {language.title}
-          </button>
+            key={curItem.id}
+            onClick={() => setSelectedLanguage(curItem)} // Cambia il linguaggio selezionato
+            className={`btn ${index === 0 ? "btn-warning" : "btn-primary"} m-2`}>{curItem.title}
+            </button>
         ))}
       </div>
 
       {/* Card per mostrare il linguaggio selezionato */}
-      <div className="card">
+      <div className="card mt-3 p-3">
         <h2>{selectedLanguage.title}</h2>
         <p>{selectedLanguage.description}</p>
       </div>
-    
+      </div>
      </>
   )
 }
